@@ -7,13 +7,12 @@
 </head>
 <body>
 <body class="light-theme">
-    <h1>What does code sound like?</h1>
+    <h1>What does incomprehensibility sound like?</h1>
     <p id="msg">Some examples from Twitter:</p>
     <ul>
         <li class="list">Tweet 1</li>
         <li class="list">Tweet 2</li>
         <li class="list">Tweet 3</li>
-        <li>Enable switching the theme</li>
     </ul>
     <div>
         <button class="btn">Dark</button>
