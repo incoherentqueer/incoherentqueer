@@ -1,1 +1,602 @@
+<!DOCTYPE html>
+<head><title>Incoherent Queer Sounds</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+<meta name="description" content="{MetaDescription}" />
+ 
+ 
+<!--------default variables-------->
+<meta name="color:background" content="#ffffff"/>
+<meta name="color:text" content="#333333"/>
+<meta name="color:links" content="#5b5b5b"/>
+<meta name="color:links hover" content="#c9c9c9"/>
+<meta name="color:scrollbar bg" content="#ffffff"/>
+<meta name="color:scrollbar" content="#eeeeee">
+ 
+<meta name="image:sidebar image" content=""/>
+ 
+<meta name="text:link 1 title" content="link">
+<meta name="text:link 1 url" content=" ">
+<meta name="text:link 2 title" content="link">
+<meta name="text:link 2 url" content=" ">
+<meta name="text:link 3 title" content="link">
+<meta name="text:link 3 url" content=" ">
+ 
+<meta name="if:show link 1" content="1" />
+<meta name="if:show link 2" content="1" />
+<meta name="if:show link 3" content="1" />
+<meta name="if:show sidebar image" content="1" />
+ 
+<link href='http://fonts.googleapis.com/css?family=Roboto:700,400' rel='stylesheet' type='text/css'>
+ 
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!------------------------TOOLTIPS SCRIPT--------------------->
+ 
+<link href="http://static.tumblr.com/5omyijl/bzrn2yg7i/style-my-tooltips.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="http://static.tumblr.com/5omyijl/RZtn2yg9v/jquery.style-my-tooltips.js"></script>
+<script>
+(function($){
+$(document).ready(function(){
+$("[title]").style_my_tooltips({
+tip_follows_cursor:true,
+tip_delay_time:200,
+tip_fade_speed:300
+});
+});
+})(jQuery);
+</script>
+ 
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Roboto:700,400:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(function() {
+ 
+    var $el, leftPos, newWidth,
+        $mainNav = $("#example-one");
+   
+    $mainNav.append("<li id='magic-line'></li>");
+    var $magicLine = $("#magic-line");
+   
+    $magicLine
+        .width($(".current_page_item").width())
+        .css("left", $(".current_page_item a").position().left)
+        .data("origLeft", $magicLine.position().left)
+        .data("origWidth", $magicLine.width());
+       
+    $("#example-one li a").hover(function() {
+        $el = $(this);
+        leftPos = $el.position().left;
+        newWidth = $el.parent().width();
+        $magicLine.stop().animate({
+            left: leftPos,
+            width: newWidth
+        });
+    }, function() {
+        $magicLine.stop().animate({
+            left: $magicLine.data("origLeft"),
+            width: $magicLine.data("origWidth")
+        });    
+    });
+});
+</script>
+ 
+<!-------------------------------------------------------------------->
+ 
+<style type="text/css">
+ 
+/*----------tooltips---------*/
+ 
+#s-m-t-tooltip {
+max-width:300px;
+margin:15px;
+padding:5px;
+border:1px solid #eeeeee;
+border-radius:0px;
+background:#ffffff;
+color:{color:text};
+z-index:999999;
+font-size:7px;
+font-style:none;
+font-weight:lighter;
+letter-spacing:2px;
+font-family:helvetica;
+text-transform:uppercase;
+box-shadow:1px 1px 3px rgba(0,0,0,.0);
+}
+ 
+ 
+/*----------scrollbar---------*/
+ 
+::-webkit-scrollbar {
+background-color: {color:scrollbar bg};
+height:8px;
+width:5px
+}
+ 
+::-webkit-scrollbar-thumb:vertical {
+background-color:{color:scrollbar};
+height:50px
+}
+ 
+::-webkit-scrollbar-thumb:horizontal {
+background-color:{color:scrollbar bg};
+height:8px!important
+}
+ 
+ 
+/*----------basics---------*/
+ 
+body {
+background:{color:background} url({image:background image}) repeat right top fixed;
+color:{color:text};
+font-family:arial;
+line-height:15px;
+font-size:11px;
+margin:0;
+text-align:left;
+}
+ 
+blockquote {
+padding-left:10px;
+border-left:1px solid #eee;
+margin:10px;
+}
+ 
+a {
+color:{color:links};
+text-decoration:none;
+}
+ 
+a:hover {
+text-decoration:none;
+color: {color:links hover};
+-webkit-transition:all 0.5s;
+-moz-transition:all 0.5s;
+-ms-transition:all 0.5s;
+-o-transition:all 0.5s;
+transition:all 0.5s;
+}
+ 
+img {
+opacity:1;
+text-decoration:none;
+}
+ 
+h1 {
+font-size:14px;
+font-weight:bold;
+text-transform:uppercase;
+font-family:roboto;
+ 
+}
+ 
+ 
+/*----------posts---------*/
+ 
+.container {
+left:50%;
+width:800px;
+position:absolute;
+}
+ 
+.posts {
+{block:IndexPage}
+margin-bottom:80px;
+{/block:IndexPage}
+{block:PermalinkPage}
+margin-bottom:40px;
+{/block:PermalinkPage}
+width:500px;
+}
+ 
+.entries {
+margin-left:-60px;
+width:500px;
+margin-top:50px;
+margin-bottom:50px;
+}
+ 
+.posts img, .posts li, .posts blockquote {
+max-width: 100%;
+}
+ 
+.posts li {
+list-style: square;
+}
+ 
+blockquote img {
+max-width:320px!important;
+}
+ 
+ 
+/*----------post info---------*/
+ 
+.info {
+border-top:1px solid #eeeeee;
+padding-top:15px;
+text-transform:uppercase;
+font-size:9px;
+font-family:roboto;
+letter-spacing:1px;
+margin-top:15px;
+}
+ 
+.tags {
+margin-top:5px;
+font-size:9px;
+letter-spacing:1px;
+}
+ 
+.tags a {
+margin-right:8px;
+}
+ 
+ 
+/*----------post notes---------*/
+ 
+ol.notes {
+padding:0px;
+margin:25px 0px 0px -10px;
+list-style-type:none;
+}
+ 
+ol.notes li.note {
+padding:10px;
+}
+ 
+ol.notes li.note img.avatar {
+vertical-align:-4px;
+margin-right:10px;
+width:16px;
+height:16px;
+}
+ 
+ol.notes li.note span.action {
+font-weight:none;
+}
+ 
+ol.notes li.note .answer_content {
+font-weight:normal;
+}
+ 
+ol.notes li.note blockquote {
+padding:4px 10px;
+margin:10px 0px 0px 25px;
+}
+ 
+ol.notes li.note blockquote a {
+text-decoration:none;
+}
+ 
+/*----------sidebar---------*/
+ 
+.sidebar {
+position:fixed;
+margin-left:-400px;
+width:220px;
+height:auto;
+{block:IfShowSidebarImage}
+margin-top:200px;
+{/block:IfShowSidebarImage}
+{block:IfNotShowSidebarImage}
+margin-top:290px;
+{/block:IfNotShowSidebarImage}
+}
+ 
+.sidebarimage {
+width:220px;
+}
+ 
+.sidebarimage img {
+width:220px;
+margin-bottom:15px;
+}
+ 
+.sidetitle {
+width:220px;
+color:{color:sidetitle};
+font-family: arial;
+text-transform:uppercase;
+font-size:11px;
+letter-spacing:2px;
+font-weight:bold;
+text-align:center;
+margin-bottom:10px;
+}
+ 
+.nav-wrap {
+margin: 20px auto;
+background-color: #fff;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+}
+ 
+/* Clearfix */
+.group:after {
+visibility: hidden;
+display: block;
+content: "";
+clear: both;
+height: 0;
+}
+ 
+ 
+#example-one {
+margin:auto;
+list-style: none;
+position: relative;
+width: 220px;
+margin-left:-5px;
+padding:8px;
+}
+ 
+#example-one li {
+display: inline-block; 
+}
+ 
+#example-one a {
+color: {color:links};
+font-size:7px;
+width:220px;
+letter-spacing:1px;
+text-align:center;
+padding: 10px 10px 10px 5px;
+text-decoration: none;
+text-transform: uppercase;
+}
+ 
+#example-one a:hover {
+color: #333;
+}
+ 
+#magic-line {
+position: absolute;
+bottom: -1px;
+margin-left:-5px;
+width: 100px;
+height: 1px;
+background: #000;
+}
+ 
+.current_page_item a {
+color: {color:links}; !important;
+}
+ 
+.ie6 #example-one li, .ie7 #example-one li {
+display: inline-block;
+}
+ 
+.ie6 #magic-line {
+bottom: -3px;
+}
+ 
+.description {
+margin-top:15px;
+font-size:10px;
+width:220px;
+font-style:none;
+text-align:justify;
+}
+ 
+.pagination {
+margin-top:10px;
+text-align:center;
+font-size:7px;
+width:220px;
+text-transform:uppercase;
+letter-spacing:1px;
+padding-top:15px;
+color:{color:links};
+}
+ 
+ 
+ 
+/*----------quotes---------*/
+ 
+.quote {
+text-transform:uppercase;
+font-size:15px;
+font-weight:bold;
+text-align:center;
+font-family:roboto;
+ 
+}
+ 
+.quotesource {
+text-align:center;
+margin-top:10px;
+}
+ 
+ 
+/*----------chat---------*/
+ 
+.chat {
+line-height:20px;
+list-style:none;
+}
+ 
+.line.odd {
+background:#fafafa;
+margin-bottom:2px;
+padding:5px;
+list-style:none;
+font-size:11px;
+}
+ 
+.line.even {
+background:#ffffff;
+margin-bottom:2px;
+padding:5px;
+list-style:none;
+font-size:11px;
+}
+ 
+.label {
+padding-right:1px;
+text-transform:uppercase;
+font-weight:bold;
+color:{color:links};
+font-family:roboto;
+letter-spacing:1px;
+font-size:9px;
+}
+ 
+ 
+/*----------questions---------*/
+ 
+.question {
+background:#fafafa;
+padding:10px;
+text-align:center;
+}
+ 
+.asker {
+text-transform:uppercase;
+font-family:roboto;
+letter-spacing:1px;
+text-align:center;
+}
+ 
+.answer {
+padding:10px;
+margin-top:-15px;
+}
+ 
+/*----------audio---------*/
+ 
+.playerbutton {
+position:absolute;
+width:30px;
+height:35px;
+overflow:hidden;
+margin-top:-53px;
+margin-left:16px;
+}
+           
+.playerbuttonhug {
+position: absolute;
+top:-7px;
+left:2px;
+}
+ 
+.tumblr_audio_player {
+height:50px;
+width:500px;
+}
+ 
+.playerbuttonbg {
+position:absolute;
+width:64px;
+height:64px;
+padding:10px;
+}
+           
+.trackdetails {
+width:auto;
+display:inline-block;
+margin-left:80px;
+font-size:10px;
+letter-spacing:1px;
+text-transform:lowercase;
+padding:15px;
+line-height:15px;
+}
+           
+.audiowrapper {
+position:relative;
+display:inline-block;
+}
+ 
 
+div {
+  margin-top: 50px
+}
+ 
+ 
+</style>  
+</head>
+ 
+<body>
+<div class="container">
+ 
+ 
+<div class="sidebar">
+ 
+<div class="sidebarimage"><a href="/"><script language="JavaScript">
+<!--
+
+/*
+Random Image Script- By JavaScript Kit (http://www.javascriptkit.com) 
+Over 400+ free JavaScripts here!
+Keep this notice intact please
+*/
+
+function random_imglink(){
+var myimages=new Array()
+//specify random images below. You can have as many as you wish
+myimages[1]="https://cdn.pixabay.com/photo/2016/11/19/00/13/sound-1837427_1280.png"
+myimages[2]= "https://cdn.pixabay.com/photo/2016/10/29/20/58/sound-1781569_1280.png"
+myimages[3]="https://cdn.pixabay.com/photo/2021/01/13/02/55/question-mark-5913073_1280.png"
+
+var ry=Math.floor(Math.random()*myimages.length)
+if (ry==0)
+ry=1
+document.write('<img src="'+myimages[ry]+'" border=0>')
+}
+random_imglink()
+//-->
+</script></a></div>
+ 
+<div class="sidetitle">Incoherent Queer Sounds</div>
+ 
+<div class="nav-wrap">
+<ul class="group" id="example-one">
+<center>
+<li class="current_page_item"><a href="/">home</a></li>
+<li><a href="about.html">about</a></li>
+  <li><a href="contact.html">contact</a></li>
+<li><a href="archive.html">archive</a></li>
+</center></div></ul>
+ 
+ 
+<div class="description"><center>Major Field Exam - - - Taylor York</center></div>
+
+ 
+ 
+</div>
+  
+<div class="autopagerize_page_element">
+ 
+<div class="entries">
+
+<div class="posts">
+ 
+
+<h1>Archive of Work</h1>
+{Body}
+ 
+<br>
+<br>
+<br>
+<br> 
+
+
+ 
+</body>
+ 
+</div></div></div></div></div></div></div></div></div></div></div>
+</html>
